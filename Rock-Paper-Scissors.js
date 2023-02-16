@@ -3,23 +3,29 @@ function getComputerChoice() {
     return Math.floor(Math.random() * game_options.length);
 }
 
-console.log(getComputerChoice());
+let pointTracker_computer = 0
+let pointTracker_human = 0
 
-let pointTracker = 0
-
-function gameTime (playerSelection, computerSelection) {
-    if (playerSelection === 0 && computerSelection === 1) {
+function playRound (playerSelection, computerSelection) {
+    if (playerSelection === "rock" && computerSelection === 1) {
         return "You lose! Paper beats Rock";
-    } else if (playerSelection === 1 && computerSelection === 2) {
+    } else if (playerSelection === "paper" && computerSelection === 2) {
         return "You lose! Scissors beats Paper"
-    } else if (playerSelection === 2 && computerSelection === 0) {
+    } else if (playerSelection === "scissors" && computerSelection === 0) {
         return "You lose! Rock beats Scissors"
+    } else if (playerSelection === "scissors" && computerSelection === 2 || 
+    playerSelection === "rock" && computerSelection === 0 || 
+    playerSelection === "paper" && computerSelection === 1) {
+        return "It's a tie"
+    } else {
+        return "You win!"
     }
 }
 
 /* make a prompt that takes the user's input, makes it lowercase, 
 and assigns that string a variable
 then make an exception that says "Not a valid input"*/
-
-/* Eventually convert the below function to an input-based function?*/
-console.log(gameTime(0, 1));
+const playerSelection = "rock";
+const computerSelection = getComputerChoice();
+console.log(computerSelection); /* don't know why changing this console.log to the getComputerChoice function doesn't */
+console.log(playRound(playerSelection, computerSelection));
