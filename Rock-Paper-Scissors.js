@@ -22,6 +22,17 @@ function playRound (playerSelection, computerSelection) {
     }
 }
 
+function game() {
+    playRound();
+        if ("You lose! Rock beats Scissors" ||
+        "You lose! Scissors beats Paper" ||
+        "You lose! Paper beats Rock") {
+            pointTracker_computer += 1;
+        } else if ("You win!") {
+            pointTracker_human += 1;
+        }
+}
+
 /* make a prompt that takes the user's input, makes it lowercase, 
 and assigns that string a variable
 then make an exception that says "Not a valid input"*/
@@ -29,3 +40,4 @@ const playerSelection = "rock";
 const computerSelection = getComputerChoice();
 console.log(computerSelection); /* don't know why changing this console.log to the getComputerChoice function doesn't */
 console.log(playRound(playerSelection, computerSelection));
+console.log(game(pointTracker_computer && pointTracker_human))
