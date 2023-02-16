@@ -40,4 +40,3 @@ const playerSelection = "rock";
 const computerSelection = getComputerChoice();
 console.log(computerSelection); /* don't know why changing this console.log to the getComputerChoice function doesn't */
 console.log(playRound(playerSelection, computerSelection));
-console.log(game(pointTracker_computer && pointTracker_human))
