@@ -42,7 +42,8 @@ function playRound(playerChoice, computerChoice) {
         (playerChoice === "SCISSORS" && computerChoice === "ROCK")
     ) {
         roundWinner = "You lose this round."
-        // compScore++
+        compScore++
+        // console.log(compScore) // SCORE SYSTEM WORKS, resets when testing single round
     } 
     if (
         (playerChoice === "ROCK" && computerChoice === "SCISSORS") ||// Winner conditionals
@@ -50,13 +51,25 @@ function playRound(playerChoice, computerChoice) {
         (playerChoice === "SCISSORS" && computerChoice === "PAPER")
     ) { 
         roundWinner = "You win this round."
-        // playerScore++
+        playerScore++
+        // console.log(playerScore)
     }
     return roundWinner
 }   
 
-const singleRoundResult = playRound(playerSelection, playerSelection); //passing funcs no work, but passing vars works
-console.log(singleRoundResult);
+// 
+// const singleRoundResult = playRound(playerSelection, computerSelection); // STORES STRING
+// ^^passing funcs doesn't work, but passing funcs as variables works
+// console.log(singleRoundResult); // PRINTS STRING TO CONSOLE
+
+
+/* playGame function
+Goal: play single round 5 times
+stop after 5th time
+announce winner
+*/
+
+
 
 /* 
     OTHER THINGS WE NEED: 
