@@ -1,55 +1,47 @@
-/* getComputerChoice returns a random index of the R/P/S array */
+//GLOBAL VARIABLES
+let playerScore = 0
+let compScore = 0
+
+
+// GENERATE RANDOM ROCK, PAPER, OR SCISSORS
 function getComputerChoice() {
-    let game_options = ["rock", "paper", "scissors"];
-    switch 
-}
-
-/* variables to set initial zero'd-out point values */
-let pointTracker_computer = 0
-let pointTracker_human = 0
-
-
-/* playRound sets all the conditional responses to each round
-TO DO: ADD POINT TRACKING? */
-function playRound (playerSelection, computerSelection) {
-    if (playerSelection === "rock" && computerSelection === 1) {
-        return "You lose! Paper beats Rock";
-    } else if (playerSelection === "paper" && computerSelection === 2) {
-        return "You lose! Scissors beats Paper"
-    } else if (playerSelection === "scissors" && computerSelection === 0) {
-        return "You lose! Rock beats Scissors"
-    } else if (playerSelection === "scissors" && computerSelection === 2 || 
-                playerSelection === "rock" && computerSelection === 0 || 
-                playerSelection === "paper" && computerSelection === 1) {
-        return "It's a tie"
-    } else {
-        return "You win!"
+    let randomNumber = Math.floor(Math.random() * (3 - 0) + 0)
+    switch (randomNumber) {
+    case 0:
+        return 'ROCK'
+    case 1:
+        return 'PAPER'
+    case 2:
+        return 'SCISSORS'
     }
 }
+// Returns random R/P/S
+console.log(getComputerChoice());
+const computerChoice = getComputerChoice();
 
-/* Calls the playRound function inside in order to assign points, but something
-is not working. 
-It checks the strings, but even if the human wins, it says the computer gets a point */
-function game() {
-    for (let rounds = 0; rounds < 5; rounds++)
-        playRound();
-            if ("You lose! Rock beats Scissors" ||
-            "You lose! Scissors beats Paper" ||
-            "You lose! Paper beats Rock") {
-                pointTracker_computer += 1;
-            } else if ("You win!") {
-                pointTracker_human += 1;
+// RECEIVE PLAYER SELECTION
+function getPlayerChoice() {
+    return prompt("Rock, Paper, or Scissors? --> ").toUpperCase()
+}
+// Returns player R/P/S selection
+const playerChoice = getPlayerChoice();
+
+
+/* 2) write a function that plays a single round of R/P/S
+- define the function playRound(playerSelection, computerSelection)
+- write conditional for tie
+- write shorthand conditionals for "you win" scenarios
+    - return "You win this round!"
+    - add point to playerScore++
+
+- write shorthand conditionals for "you lose" scenarios
+    - return "Computer wins this round!"
+    - add point to compScore++
+
+
+    OTHER THINGS WE NEED: 
+    loop for multiple rounds
+
+
     
-    console.log("That's 5 rounds!")        }
-    if (pointTracker_computer < pointTracker_human) {
-        console.log("You win! The Computer loses!");
-    } else {
-        console.log("You lose! The Computer wins!");
-    }
-}
-
-/* make a prompt that takes the user's input, makes it lowercase, 
-and assigns that string a variable
-then make an exception that says "Not a valid input"*/
-
-console.log(game(playRound(prompt("Rock, Paper, or Scissors? --> "), getComputerChoice)));
+ */
