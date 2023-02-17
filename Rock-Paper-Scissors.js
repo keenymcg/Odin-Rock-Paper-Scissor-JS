@@ -1,8 +1,3 @@
-//GLOBAL VARIABLES
-let playerScore = 0
-let compScore = 0
-
-
 // GENERATE RANDOM ROCK, PAPER, OR SCISSORS
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * (3 - 0) + 0)
@@ -16,32 +11,55 @@ function getComputerChoice() {
     }
 }
 // Returns random R/P/S
-console.log(getComputerChoice());
-const computerChoice = getComputerChoice();
+// console.log(getComputerChoice()); WORKS as function
+const computerSelection = getComputerChoice();
+console.log(computerSelection); // WORKS as variable
 
 // RECEIVE PLAYER SELECTION
 function getPlayerChoice() {
     return prompt("Rock, Paper, or Scissors? --> ").toUpperCase()
 }
 // Returns player R/P/S selection
-const playerChoice = getPlayerChoice();
+// console.log(getPlayerChoice()); WORKS as function
+const playerSelection = getPlayerChoice();
+// console.log(playerSelection) WORKS as variable
 
 
-/* 2) write a function that plays a single round of R/P/S
-- define the function playRound(playerSelection, computerSelection)
-- write conditional for tie
-- write shorthand conditionals for "you win" scenarios
-    - return "You win this round!"
-    - add point to playerScore++
-
-- write shorthand conditionals for "you lose" scenarios
-    - return "Computer wins this round!"
-    - add point to compScore++
+//GLOBAL VARIABLES
+let playerScore = 0
+let compScore = 0
+let roundWinner = ''
 
 
+// PLAYS A SINGLE ROUND
+function playRound(playerChoice, computerChoice) {
+    if (playerChoice === computerChoice) {
+        roundWinner = "It's a tie for this round."
+    } 
+    if (
+        (playerChoice === "ROCK" && computerChoice === "PAPER") || // Loser conditionals
+        (playerChoice === "PAPER" && computerChoice === "SCISSORS") ||
+        (playerChoice === "SCISSORS" && computerChoice === "ROCK")
+    ) {
+        roundWinner = "You lose this round."
+        // compScore++
+    } 
+    if (
+        (playerChoice === "ROCK" && computerChoice === "SCISSORS") ||// Winner conditionals
+        (playerChoice === "PAPER" && computerChoice === "ROCK") ||
+        (playerChoice === "SCISSORS" && computerChoice === "PAPER")
+    ) { 
+        roundWinner = "You win this round."
+        // playerScore++
+    }
+    return roundWinner
+}   
+
+const singleRoundResult = playRound(playerSelection, playerSelection); //passing funcs no work, but passing vars works
+console.log(singleRoundResult);
+
+/* 
     OTHER THINGS WE NEED: 
     loop for multiple rounds
-
-
-    
+    - use the playRound in the game() function to loop through 5 times    
  */
