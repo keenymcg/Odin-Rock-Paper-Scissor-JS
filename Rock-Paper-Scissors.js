@@ -18,14 +18,15 @@ console.log(computerSelection); // WORKS as variable
 // RECEIVE PLAYER SELECTION
 function getPlayerChoice() {
     return prompt("Rock, Paper, or Scissors? --> ").toUpperCase()
+    // NEED(?) if statement for invalid inputs?
 }
 // Returns player R/P/S selection
 // console.log(getPlayerChoice()); WORKS as function
 const playerSelection = getPlayerChoice();
-// console.log(playerSelection) WORKS as variable
+console.log(playerSelection) // WORKS as variable
 
 
-//GLOBAL VARIABLES
+// GLOBAL VARIABLES
 let playerScore = 0
 let compScore = 0
 let roundWinner = ''
@@ -54,13 +55,44 @@ function playRound(playerChoice, computerChoice) {
         playerScore++
         // console.log(playerScore)
     }
-    return roundWinner
+    console.log(compScore);
+    console.log(playerScore);
+    console.log(roundWinner)
+    //return roundWinner
 }   
 
+// IDEA IS TO RUN SINGLE ROUND 5 TIMES
+function game() {
+    for (let i = 0; i < 5; i++) {
+        playRound(playerSelection, computerSelection)
+    } 
+}
+
+const gameScores = game();
+console.log(gameScores);
+
+function gameIsOver() {
+    if (compScore === playerScore) {
+        console.log("The whole game's a tie!")
+    } 
+    if (compScore < playerScore) {
+        console.log("Player wins whole game!")
+    } 
+    else {
+        console.log("Computer wins whole game!")
+    }
+    /* 5 rounds possibilities: 
+    1) a tie in scores, so a message must be sent
+    2) winner 
+    3) loser
+    Therefore, return string statements based on score possibilities
+    */
+}
+
 // 
-// const singleRoundResult = playRound(playerSelection, computerSelection); // STORES STRING
+const singleRoundResult = playRound(playerSelection, computerSelection); // STORES STRING
 // ^^passing funcs doesn't work, but passing funcs as variables works
-// console.log(singleRoundResult); // PRINTS STRING TO CONSOLE
+console.log(singleRoundResult); // PRINTS STRING TO CONSOLE
 
 
 /* playGame function
