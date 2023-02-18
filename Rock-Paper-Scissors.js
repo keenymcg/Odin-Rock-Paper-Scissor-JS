@@ -56,7 +56,7 @@ function playRound(playerChoice, computerChoice) { // We pass the player/comp ch
     }
 }
 
-function game() { // THE REST OF OUR HELPER FUNCTIONS CULMINATE INSIDE THIS FUNCTION such that to play the game we only have to call this function
+function playGame() { // THE REST OF OUR HELPER FUNCTIONS CULMINATE INSIDE THIS FUNCTION such that to play the game we only have to call this function
     let scorePlayer = 0; 
     let scoreComputer = 0;
     console.log("Welcome!") // announces the game before the 5-round loop starts
@@ -84,4 +84,4 @@ function game() { // THE REST OF OUR HELPER FUNCTIONS CULMINATE INSIDE THIS FUNC
     }
 }
 
-game();
+playGame();
