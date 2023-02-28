@@ -26,7 +26,7 @@ function getPlayerChoice() { // We want to return the player's choice only if ce
 }
 
 function checkWinner(playerChoice, computerChoice) { // goal of function is only to return a string of the winner
-    // need to pass choices are parameters and then compare them
+    // need to pass choices as parameters and then compare them
     if (playerChoice === computerChoice) { 
         return "Tie" // start with "Tie" because it's simple
     } 
@@ -56,32 +56,57 @@ function playRound(playerChoice, computerChoice) { // We pass the player/comp ch
     }
 }
 
-function playGame() { // THE REST OF OUR HELPER FUNCTIONS CULMINATE INSIDE THIS FUNCTION such that to play the game we only have to call this function
-    let scorePlayer = 0; 
-    let scoreComputer = 0;
-    console.log("Welcome!") // announces the game before the 5-round loop starts
-    for (let i = 0; i < 5; i++) {
-        const playerChoice = getPlayerChoice(); // getting the player & comp choices are inside of the for loop because they need to change with each round
-        const computerChoice = getComputerChoice();
-        console.log(playRound(playerChoice, computerChoice)); // we pass the player/computer choices into playRound, which initiates the checkWinner func...
-        if (checkWinner(playerChoice, computerChoice) == "Player") { // the round-winner is announced, and then that info is used to tally the score
-            scorePlayer++;
-        } 
-        else if (checkWinner(playerChoice, computerChoice) == "Computer") {
-            scoreComputer++;
-        }
-        console.log("--------"); // logs a line to delineate the rounds
+let scorePlayer = 0; 
+let scoreComputer = 0;
+
+function playGame(playerChoice) { // THE REST OF OUR HELPER FUNCTIONS CULMINATE INSIDE THIS FUNCTION 
+    // ...so that in order to play the game we only have to call this function, and no other
+    console.log("New Round!")
+    const computerChoice = getComputerChoice();
+    playRound(playerChoice, computerChoice); // we pass the player/computer choices into playRound, which initiates the checkWinner func...
+        
+    if (checkWinner(playerChoice, computerChoice) == "Player") {
+        scorePlayer++;
+    } 
+    else if (checkWinner(playerChoice, computerChoice) == "Computer") {
+        scoreComputer++;
     }
-    console.log("Game Over") // loop breaks after 5 rounds
+    console.log(scorePlayer);
+    console.log(scoreComputer);
+    /* console.log("Game Over") // loop breaks after 5 rounds
     if (scorePlayer > scoreComputer) {
         console.log("Player was the winner")
+        //return "Player was the winner"
     }
     else if (scorePlayer < scoreComputer) {
         console.log("Computer was the winner")
+        //return "Computer was the winner"
     }
     else {
         console.log("We have a tie.")
-    }
+        // return "We have a tie."
+    } */ 
 }
 
 playGame();
+
+// HTML
+
+const body = document.body
+
+const rockBtn = document.createElement('button');
+const paperBtn = document.createElement('button');
+const scissorsBtn = document.createElement('button');
+
+const rock = "ROCK"
+const paper = "PAPER"
+const scissors = "SCISSORS"
+
+rockBtn.addEventListener('click', () => playGame(rock));
+paperBtn.addEventListener('click', () => playGame(paper));
+scissorsBtn.addEventListener('click', () => playGame(scissors));
+
+body.append(rockBtn, paperBtn, scissorsBtn);
+
+
+
