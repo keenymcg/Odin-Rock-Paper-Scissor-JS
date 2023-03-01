@@ -42,9 +42,9 @@ function checkWinner(playerChoice, computerChoice) { // goal of function is only
     }
 }   
 
-function playRound(playerChoice, computerChoice) { // We pass the player/comp choices as parameters for one reason: 
+function playRound(playerChoice, computerChoice) { // We pass the player/comp choices as parameters... 
     // ...to paste those string values into the winner-declaration "result" string
-    const result = checkWinner(playerChoice, computerChoice); // We pass them as parameters again in checkWinner to store the value in "result" var
+    const result = checkWinner(playerChoice, computerChoice); // We pass them as parameters again in checkWinner to store the value in "result" 
     if (result == "Tie") { 
         return "It's a tie!"
     }
@@ -54,17 +54,16 @@ function playRound(playerChoice, computerChoice) { // We pass the player/comp ch
     else {
         return `You lose! ${computerChoice} beats ${playerChoice}`
     }
+   // console.log(result)
 }
 
 let scorePlayer = 0; 
 let scoreComputer = 0;
 
-function playGame(playerChoice) { // THE REST OF OUR HELPER FUNCTIONS CULMINATE INSIDE THIS FUNCTION 
-    // ...so that in order to play the game we only have to call this function, and no other
+function playGame(playerChoice) {
     console.log("New Round!")
     const computerChoice = getComputerChoice();
-    playRound(playerChoice, computerChoice); // we pass the player/computer choices into playRound, which initiates the checkWinner func...
-        
+    playRound(playerChoice, computerChoice);
     if (checkWinner(playerChoice, computerChoice) == "Player") {
         scorePlayer++;
     } 
@@ -88,25 +87,67 @@ function playGame(playerChoice) { // THE REST OF OUR HELPER FUNCTIONS CULMINATE 
     } */ 
 }
 
-playGame();
+function announceWinner() {
+    if (scorePlayer = 5) {
+        console.log("You win!")
+    } else if (scoreComputer = 5) {
+        console.log("The computer wins!")
+    }
+}
 
 // HTML
 
-const body = document.body
+const body = document.body;
 
+// Header
+
+const header = document.createElement('header');
+
+// R/P/S Buttons
+
+const btnDivRock = document.createElement('div');
 const rockBtn = document.createElement('button');
-const paperBtn = document.createElement('button');
-const scissorsBtn = document.createElement('button');
+rockBtn.textContent = "ROCK"
 
-const rock = "ROCK"
-const paper = "PAPER"
-const scissors = "SCISSORS"
+const btnDivPaper = document.createElement('div');
+const paperBtn = document.createElement('button');
+paperBtn.textContent = "PAPER"
+
+const btnDivScissors = document.createElement('div');
+const scissorsBtn = document.createElement('button');
+scissorsBtn.textContent = "SCISSORS"
+
+const rock = "ROCK";
+const paper = "PAPER";
+const scissors = "SCISSORS";
 
 rockBtn.addEventListener('click', () => playGame(rock));
 paperBtn.addEventListener('click', () => playGame(paper));
 scissorsBtn.addEventListener('click', () => playGame(scissors));
 
-body.append(rockBtn, paperBtn, scissorsBtn);
+body.append(header, btnDivRock, btnDivPaper, btnDivScissors);
+
+btnDivRock.append(rockBtn);
+btnDivPaper.append(paperBtn);
+btnDivScissors.append(scissorsBtn);
+
+// Results
+
+const resultsDiv = document.createElement('div');
+const scoreComputerDiv = document.createElement('div');
+const scorePlayerDiv = document.createElement('div');
+const message = document.createElement('p');
+
+resultsDiv.className = 'results score'
+resultsDiv.textContent = 'SCOREBOARD'
+message.textContent = 'temp text'
+
+scorePlayerDiv.textContent = scorePlayer;
+scoreComputerDiv.textContent = scoreComputer;
 
 
+body.append(resultsDiv);
+resultsDiv.append(scoreComputerDiv);
+resultsDiv.append(scorePlayerDiv);
+resultsDiv.append(message);
 
