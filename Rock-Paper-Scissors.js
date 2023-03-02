@@ -7,7 +7,7 @@ function getComputerChoice() {
     return randOption
     }
 
-function getPlayerChoice() { // We want to return the player's choice only if certain conditions are true
+/* function getPlayerChoice() { // We want to return the player's choice only if certain conditions are true
     let validatedInput = false; 
     while(validatedInput == false) {
         const choice = prompt("Rock Paper Scissors"); // store prompt in "choice" variable because...
@@ -23,7 +23,7 @@ function getPlayerChoice() { // We want to return the player's choice only if ce
             return choiceInUpper; // the result of this function can now only be one of the "options" choices
         }
     }
-}
+} */
 
 function checkWinner(playerChoice, computerChoice) { // goal of function is only to return a string of the winner
     // need to pass choices as parameters and then compare them
@@ -99,55 +99,14 @@ function announceWinner() {
 
 const body = document.body;
 
-// Header
-
-const header = document.createElement('header');
-
 // R/P/S Buttons
 
-const btnDivRock = document.createElement('div');
-const rockBtn = document.createElement('button');
-rockBtn.textContent = "ROCK"
-
-const btnDivPaper = document.createElement('div');
-const paperBtn = document.createElement('button');
-paperBtn.textContent = "PAPER"
-
-const btnDivScissors = document.createElement('div');
-const scissorsBtn = document.createElement('button');
-scissorsBtn.textContent = "SCISSORS"
-
-const rock = "ROCK";
-const paper = "PAPER";
-const scissors = "SCISSORS";
 
 rockBtn.addEventListener('click', () => playGame(rock));
 paperBtn.addEventListener('click', () => playGame(paper));
 scissorsBtn.addEventListener('click', () => playGame(scissors));
 
-body.append(header, btnDivRock, btnDivPaper, btnDivScissors);
-
 btnDivRock.append(rockBtn);
 btnDivPaper.append(paperBtn);
 btnDivScissors.append(scissorsBtn);
-
-// Results
-
-const resultsDiv = document.createElement('div');
-const scoreComputerDiv = document.createElement('div');
-const scorePlayerDiv = document.createElement('div');
-const message = document.createElement('p');
-
-resultsDiv.className = 'results score'
-resultsDiv.textContent = 'SCOREBOARD'
-message.textContent = 'temp text'
-
-scorePlayerDiv.textContent = scorePlayer;
-scoreComputerDiv.textContent = scoreComputer;
-
-
-body.append(resultsDiv);
-resultsDiv.append(scoreComputerDiv);
-resultsDiv.append(scorePlayerDiv);
-resultsDiv.append(message);
 
