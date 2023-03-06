@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(#ed8004, rgba(243, 0, 0, 0.678));
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    color: white;
+    text-shadow: 0 0 4px black;
+    cursor: crosshair;
+}
+
+header {
+    padding: 1.3em;
+}
+
+.options {
+    padding: 2em;
+    border: ridge;
+}
+
+img {
+    width: 90px;
+    height: 90px;
+}
+
+img:hover {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+}

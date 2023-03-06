@@ -122,6 +122,16 @@ function displayEnd() {
     } else {
         document.querySelector(".roundWinner").textContent = "You lost to the computer!"
     }
+    document.querySelector(".reset").style.display = "flex";
+}
+
+function reset() {
+    winners = []
+    document.querySelector(".roundWinner").textContent = ""
+    document.querySelector(".playerScore").textContent = `Player Score: 0`;
+    document.querySelector(".compScore").textContent = `Computer Score: 0`;
+    document.querySelector(".tieScore").textContent = `Ties: 0`;
+    document.querySelector(".reset").style.display = "none";
 }
 
 startGame();

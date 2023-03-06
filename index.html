@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>Placeholder Header Text</header>
+    <header>Make a choice, if you dare:</header>
 
     <h1>Rock, Paper, or Scissors?</h1>
     <h2>Scoreboard</h2>
@@ -19,23 +19,17 @@
     </div>
 
     <div >
-        <img id="ROCK" src="./images/rock.png" />
-    </div>
-
-    <div>
-        <img id="PAPER" src="./images/paper.png" />
-    </div>
-
-    <div>
-        <img id="SCISSORS" src="./images/scissors.png" />
+        <img id="ROCK" class="options" src="./images/rock.png" />
+        <img id="PAPER" class="options" src="./images/paper.png" />
+        <img id="SCISSORS" class="options" src="./images/scissors.png" />
     </div>
 
     <div id="results">
-        <h3 id="roundWinner"></h3>
+        <h3 id="roundWinner" class="roundWinner"></h3>
     </div>
 
     <div>
-        <button id="reset">Play again? btn id is "reset"</button>
+        <button id="reset" class="reset" onclick="reset()">Play again?</button>
     </div>
 
     <script src="Rock-Paper-Scissors.js"></script>
