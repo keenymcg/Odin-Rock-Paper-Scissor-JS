@@ -10,6 +10,16 @@ body {
     color: white;
     text-shadow: 0 0 4px black;
     cursor: crosshair;
+    animation: color 9s infinite linear;
+}
+
+@keyframes color {
+    0%   { background: #eb4435; }
+    20%  { background: #cc9133; }
+    40%  { background: #d0bb36; }
+    60%  { background: #d6b83f; }
+    80%  { background: #cc8533; }
+    100% { background: #eb4435; }
 }
 
 header {
@@ -18,16 +28,20 @@ header {
 
 .options {
     padding: 2em;
-    border: ridge;
 }
 
 img {
-    width: 90px;
-    height: 90px;
+    width: 200px;
+    height: 200px;
 }
 
 img:hover {
     cursor: pointer;
-    width: 100px;
-    height: 100px;
+    width: 210px;
+    height: 210px;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
 }
